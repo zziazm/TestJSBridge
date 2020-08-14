@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=no" />
+        <title>分享页</title>
+    </head>
+    <body>
+        <p></p>
+        <div>
+            <button onclick="showToast();">无参数弹框提示</button>
+            <button onclick="showToastWithParameter();">有参数弹框提示</button>
+            <button onclick="shareClick();">Click Me!</button>
+        </div>
+        <p></p>
+        <script>
+            function showToast() {
+                window.location.href = 'test1://ocShowToast';
+            }
+        
+        function showToastWithParameter() {
+            window.location.href = 'test1://ocShowToastWithParameter?parama=666666';
+        }
+        
+        //不使用window.location.href
+        function loadURL(url) {
+            var iFrame;
+            iFrame = document.createElement("iframe");
+            iFrame.setAttribute("src", url);
+            iFrame.setAttribute("style", "display:none;");
+            iFrame.setAttribute("height", "0px");
+            iFrame.setAttribute("width", "0px");
+            iFrame.setAttribute("frameborder", "0");
+            document.body.appendChild(iFrame);
+            // 发起请求后这个 iFrame 就没用了，所以把它从 dom 上移除掉
+            iFrame.parentNode.removeChild(iFrame);
+            iFrame = null;
+        }
+        function shareClick() {
+            loadURL("Test2://ocShareClick?title=分享的标题&content=分享的内容&url=链接地址&imagePath=图片地址");
+        }
+        </script>
+    </body>
+</html>
+

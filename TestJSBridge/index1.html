@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+            <title></title>
+    </head>
+    <body>
+        <p></p>
+        <div>
+            <button onclick="showToast();">弹框提示</button>
+            <button onclick="JSObjective.showAlert('参数1','参数2');">alert提示</button>
+        </div>
+        <p></p>
+        <script>
+            function showToast() {
+                // 调用OC中的showToastWithparams方法
+                showToastWithparams("参数1","参数2","参数3");
+            }
+            </script>
+    </body>
+</html>
